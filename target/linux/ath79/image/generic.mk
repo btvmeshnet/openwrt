@@ -510,6 +510,14 @@ define Device/nec_wg1200cr
 endef
 TARGET_DEVICES += nec_wg1200cr
 
+define Device/meraki_mr16
+  ATH_SOC := ar7161
+  DEVICE_TITLE := Meraki MR16
+  IMAGE_SIZE := 16000k
+  DEVICE_PACKAGES := kmod-i2c-core kmod-i2c-gpio
+endef
+TARGET_DEVICES += meraki_mr16
+
 define Device/nec_wg800hp
   ATH_SOC := qca9563
   DEVICE_TITLE := NEC Aterm WG800HP
