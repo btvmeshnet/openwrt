@@ -208,6 +208,7 @@ case "$FIRMWARE" in
 "ath9k-eeprom-pci-0000:00:11.0.bin")
 	case $board in
 	buffalo,wzr-hp-ag300h|\
+	meraki,mr16|\
 	netgear,wndr3700|\
 	netgear,wndr3700v2|\
 	netgear,wndr3800)
@@ -225,6 +226,7 @@ case "$FIRMWARE" in
 "ath9k-eeprom-pci-0000:00:12.0.bin")
 	case $board in
 	buffalo,wzr-hp-ag300h|\
+	meraki,mr16|\
 	netgear,wndr3700|\
 	netgear,wndr3700v2|\
 	netgear,wndr3800)
