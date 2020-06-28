@@ -107,7 +107,7 @@
 
 	ath9k0: wifi@0,11 { /* 2.4 GHz */
 		compatible = "pci168c,0029";
-		mtd-mac-address = <&hwinfo 0x1c>;
+		mtd-mac-address = <&mac 0x1c>;
 		mtd-mac-address-increment = <1>;
 		reg = <0x8800 0 0 0 0>;
 		#gpio-cells = <2>;
@@ -116,7 +116,7 @@
 
 	ath9k1: wifi@0,12 { /* 5 GHz */
 		compatible = "pci168c,0029";
-		mtd-mac-address = <&hwinfo 0x1c>;
+		mtd-mac-address = <&mac 0x1c>;
 		mtd-mac-address-increment = <2>;
 		reg = <0x9000 0 0 0 0>;
 		#gpio-cells = <2>;
@@ -140,7 +140,7 @@
 
 &eth0 {
 	status = "okay";
-	mtd-mac-address = <&hwinfo 0x1c>;
+	mtd-mac-address = <&mac 0x1c>;
 
 	pll-data = <0x00110000 0x00001099 0x00991099>;
 
@@ -189,12 +189,16 @@
 				compatible = "denx,uimage";
 			};
 
-			hwinfo: partition@fe0000 {
-				label = "hwinfo";
-				reg = <0xfd0000 0x10000>;
-				read-only;
-			};
+                        mac: partition@fd0000 {
+                                label = "mac";
+                                reg = <0xfd0000 0x10000>;
+                        };
 
+                        art: partition@fe0000 {
+                                label = "art";
+                                reg = <0xfe0000 0x20000>;
+                                read-only;
+                        };
 		};
 	};
 };
