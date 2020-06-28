@@ -107,7 +107,7 @@
 
 	ath9k0: wifi@0,11 { /* 2.4 GHz */
 		compatible = "pci168c,0029";
-		mtd-mac-address = <&mac 0x1c>;
+		mtd-mac-address = <&mac>;
 		mtd-mac-address-increment = <1>;
 		reg = <0x8800 0 0 0 0>;
 		#gpio-cells = <2>;
@@ -116,7 +116,7 @@
 
 	ath9k1: wifi@0,12 { /* 5 GHz */
 		compatible = "pci168c,0029";
-		mtd-mac-address = <&mac 0x1c>;
+		mtd-mac-address = <&mac>;
 		mtd-mac-address-increment = <2>;
 		reg = <0x9000 0 0 0 0>;
 		#gpio-cells = <2>;
@@ -140,7 +140,7 @@
 
 &eth0 {
 	status = "okay";
-	mtd-mac-address = <&mac 0x1c>;
+	mtd-mac-address = <&mac>;
 
 	pll-data = <0x00110000 0x00001099 0x00991099>;
 
