@@ -16,7 +16,7 @@
 
 	aliases {
 		led-boot = &power_green;
-		led-failsafe = &power_red;
+		led-failsafe = &power_orange;
 		led-running = &power_green;
 		led-upgrade = &power_green;
 	};
@@ -33,40 +33,40 @@
 
 		power_green: power_green {
 			label = "mr16:green:power";
-			gpios = <&gpio 3 GPIO_ACTIVE_LOW>;
+			gpios = <&gpio 6 GPIO_ACTIVE_LOW>;
 		};
 
-		power_red: power_red {
-			label = "mr16:red:power";
-			gpios = <&gpio 2 GPIO_ACTIVE_LOW>;
+		power_orange: power_orange {
+			label = "mr16:orange:power";
+			gpios = <&gpio 5 GPIO_ACTIVE_LOW>;
 			panic-indicator;
 		};
 
-		wifi_2g_red: wifi_2g_red {
-			label = "mr16:red:wlan2g";
-			gpios = <&gpio 8 GPIO_ACTIVE_LOW>;
-		};
+                /* TODO
+                # Fill in the power LEDs
+                */
 
-		wifi_5g_red: wifi_5g_red {
-			label = "mr16:red:wlan5g";
-			gpios = <&gpio 11 GPIO_ACTIVE_LOW>;
-		};
 	};
 
 	ath9k-leds {
 		compatible = "gpio-leds";
 
-		wifi_2g_green {
-			label = "mr16:green:wlan2g";
-			gpios = <&ath9k0 5 GPIO_ACTIVE_LOW>;
-			linux,default-trigger = "phy0tpt";
-		};
+                /* TODO
+                # Continue to fill in the power LEDs
+                */
 
-		wifi_5g_green {
-			label = "mr16:green:wlan5g";
-			gpios = <&ath9k1 5 GPIO_ACTIVE_LOW>;
-			linux,default-trigger = "phy1tpt";
-		};
+                /* wifi_2g_green { */
+		/* 	label = "ap-105:green:wlan2g"; */
+		/* 	gpios = <&ath9k0 5 GPIO_ACTIVE_LOW>; */
+		/* 	linux,default-trigger = "phy0tpt"; */
+		/* }; */
+
+		/* wifi_5g_green { */
+		/* 	label = "ap-105:green:wlan5g"; */
+		/* 	gpios = <&ath9k1 5 GPIO_ACTIVE_LOW>; */
+		/* 	linux,default-trigger = "phy1tpt"; */
+		/* }; */
+
 	};
 
 	keys {
