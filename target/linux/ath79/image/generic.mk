@@ -1017,10 +1017,15 @@ endef
 TARGET_DEVICES += nec_wg1200cr
 
 define Device/meraki_mr16
-  ATH_SOC := ar7161
-  DEVICE_TITLE := Meraki MR16
+  SOC := ar7161
+  DEVICE_VENDOR := Meraki
+  DEVICE_MODEL := MR16
   IMAGE_SIZE := 16000k
+#  IMAGES := kernel.bin rootfs.bin factory.bin sysupgrade.bin
+#  IMAGE/kernel.bin := append-kernel
+#  IMAGE/rootfs.bin := append-rootfs | pad-rootfs
   DEVICE_PACKAGES := kmod-i2c-core kmod-i2c-gpio kmod-owl-loader
+  SUPPORTED_DEVICES += meraki_mr16
 endef
 TARGET_DEVICES += meraki_mr16
 
