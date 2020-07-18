@@ -1021,10 +1021,7 @@ define Device/meraki_mr16
   DEVICE_VENDOR := Meraki
   DEVICE_MODEL := MR16
   IMAGE_SIZE := 16000k
-#  IMAGES := kernel.bin rootfs.bin factory.bin sysupgrade.bin
-#  IMAGE/kernel.bin := append-kernel
-#  IMAGE/rootfs.bin := append-rootfs | pad-rootfs
-  DEVICE_PACKAGES := kmod-i2c-core kmod-i2c-gpio kmod-owl-loader
+  DEVICE_PACKAGES := kmod-i2c-core kmod-i2c-gpio
   SUPPORTED_DEVICES += meraki_mr16
 endef
 TARGET_DEVICES += meraki_mr16
