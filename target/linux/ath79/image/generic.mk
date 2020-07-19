@@ -999,6 +999,21 @@ define Device/librerouter_librerouter-v1
 endef
 TARGET_DEVICES += librerouter_librerouter-v1
 
+define Device/meraki_mr16
+  SOC := ar7161
+  DEVICE_VENDOR := Meraki
+  DEVICE_MODEL := MR16
+  ROOTFS_SIZE := 13440k
+  IMAGE_SIZE := 15680k
+  DEVICE_PACKAGES := kmod-spi-gpio kmod-owl-loader
+  IMAGE/kernel.bin := append-kernel
+  IMAGE/rootfs.bin := append-rootfs | pad-rootfs
+  IMAGE/sysupgrade.bin := append-rootfs | pad-rootfs | pad-to $$$$(ROOTFS_SIZE) | append-kernel | append-metadata | check-size
+  IMAGES := kernel.bin rootfs.bin sysupgrade.bin
+  SUPPORTED_DEVICES += meraki_mr16
+endef
+TARGET_DEVICES += meraki_mr16
+
 define Device/nec_wg1200cr
   SOC := qca9563
   DEVICE_VENDOR := NEC
@@ -1015,16 +1030,6 @@ define Device/nec_wg1200cr
   DEVICE_PACKAGES := kmod-ath10k-ct ath10k-firmware-qca9888-ct
 endef
 TARGET_DEVICES += nec_wg1200cr
-
-define Device/meraki_mr16
-  SOC := ar7161
-  DEVICE_VENDOR := Meraki
-  DEVICE_MODEL := MR16
-  IMAGE_SIZE := 16000k
-  DEVICE_PACKAGES := kmod-i2c-core kmod-i2c-gpio
-  SUPPORTED_DEVICES += meraki_mr16
-endef
-TARGET_DEVICES += meraki_mr16
 
 define Device/nec_wg800hp
   SOC := qca9563
